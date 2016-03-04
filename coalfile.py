@@ -8,9 +8,9 @@ class ImguiFile(CoalFile):
 
     def prepare(self):
         git_clone(self.url, 'master', 'repo')
-        if "patch" in self.options:
+        if "patch" in self.settings:
             with cd('repo/'):
-                patch(self.options["patch"])
+                patch(self.settings["patch"])
     def package(self):
         cp('repo/*.h', 'include/')
         cp('repo/*.cpp', 'src/')
