@@ -10,7 +10,7 @@ class ImguiFile(CoalFile):
     def prepare(self):
         if "version" in self.settings:
             version = self.settings["version"]
-            download(self.url % version, self.zipfile)
+            download(self.url % (version), self.zipfile)
             unzip(self.zipfile, 'temp')
         else:
             git_clone(self.repo, 'master', 'repo')
