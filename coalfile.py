@@ -12,7 +12,7 @@ class ImguiFile(CoalFile):
             version = self.settings["version"]
             download(self.url % (version), self.zipfile)
             unzip(self.zipfile, 'temp')
-            cp('temp/imgui/', 'temp/') # TODO: mv would be cleaner
+            cp('temp/imgui-%s/' % (version), 'temp/') # TODO: mv would be cleaner
         else:
             git_clone(self.repo, 'master', 'temp')
         if "patch" in self.settings:
